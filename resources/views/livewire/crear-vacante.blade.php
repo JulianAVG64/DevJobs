@@ -19,6 +19,10 @@
             id="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
+            <option>-- Seleccione --</option>
+            @foreach ($salarios as $salario)
+                <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
+            @endforeach
         </select>
         <x-input-error :messages="$errors->get('salario')" class="mt-2" />
     </div>
