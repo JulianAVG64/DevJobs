@@ -1,11 +1,11 @@
-<form class="md:w-1/2 space-y-5" action="">
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Título Vacante')" />
-        <x-text-input 
-            id="titulo" 
-            class="block mt-1 w-full" 
-            type="text" 
-            name="titulo" 
+        <x-text-input
+            id="titulo"
+            class="block mt-1 w-full"
+            type="text"
+            wire:model="titulo"
             :value="old('titulo')"
             placeholder="Título Vacante"
         />
@@ -15,7 +15,7 @@
     <div>
         <x-input-label for="salario" :value="__('Salario Mensual')" />
         <select
-            name="salario"
+            wire:model="salario"
             id="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
@@ -30,7 +30,7 @@
     <div>
         <x-input-label for="categoria" :value="__('Categoría')" />
         <select
-            name="categoria"
+            wire:model="categoria"
             id="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
@@ -44,11 +44,11 @@
 
     <div>
         <x-input-label for="empresa" :value="__('Empresa')" />
-        <x-text-input 
-            id="empresa" 
-            class="block mt-1 w-full" 
-            type="text" 
-            name="empresa" 
+        <x-text-input
+            id="empresa"
+            class="block mt-1 w-full"
+            type="text"
+            wire:model="empresa"
             :value="old('empresa')"
             placeholder="Empresa: ej. Netflix, Uber, Shopify"
         />
@@ -56,21 +56,21 @@
     </div>
 
     <div>
-        <x-input-label for="empresa" :value="__('Último Día para postularse')" />
-        <x-text-input 
-            id="ultimo_dia" 
-            class="block mt-1 w-full" 
-            type="date" 
-            name="ultimo_dia" 
+        <x-input-label for="ultimo_dia" :value="__('Último Día para postularse')" />
+        <x-text-input
+            id="ultimo_dia"
+            class="block mt-1 w-full"
+            type="date"
+            wire:model="ultimo_dia"
             :value="old('ultimo_dia')"
         />
         <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
     </div>
 
     <div>
-        <x-input-label for="empresa" :value="__('Descripción Puesto')" />
-        <textarea 
-            name="descripcion" 
+        <x-input-label for="descripcion" :value="__('Descripción Puesto')" />
+        <textarea
+            wire:model="descripcion"
             placeholder="Descripción general del puesto, experiencia"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72"
         ></textarea>
@@ -79,11 +79,11 @@
 
     <div>
         <x-input-label for="imagen" :value="__('Imagen')" />
-        <x-text-input 
-            id="imagen" 
-            class="block mt-1 w-full" 
-            type="file" 
-            name="imagen" 
+        <x-text-input
+            id="imagen"
+            class="block mt-1 w-full"
+            type="file"
+            wire:model="imagen"
         />
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
